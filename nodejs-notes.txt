@@ -1,0 +1,13 @@
+Nodejs nedir?
+Node.js bir javascript çalışma ortamıdır. 
+
+Nodejs nasıl çalışır?
+Event-driven: Olay odaklı çalışır. Tek thread kullanmasından ötürü istenilen işleri bir olay döngüsünde değerlendirir. 
+Non-blocking: Engellenmeyen olarak çalışır. Node.js işlem sırasına koyduğu bir olayın tamamlanmasını beklemeden diğer olayı işleme alabilir. Bu şekilde iş akışı engellenmez. 
+Asynchronous: Asenkron çalışır. Asenkron çalışma kod akışının yukardan aşağıya ilerlemediği işlemlerin birbirini beklemediği çalışma türüdür. Bu sayede işlem sırası olaya göre belirlenebilir. 
+
+Process Object
+Process nesnesi node.js çalışma ortamında o an yapılan işlerle ilgili bilgi içerir. 
+
+REPL Read-Eval-Print-Loop
+Repl terminalden interaktif bir şekilde JavaScript çalıştırarak sonuçları görmeye yarar. Debug, test gibi denemeler için kullanılabilir. 

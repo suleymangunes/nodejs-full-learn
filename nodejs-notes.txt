@@ -11,3 +11,14 @@ Process nesnesi nodejs çalışma ortamında o an yapılan işlerle ilgili bilgi
 
 REPL Read-Eval-Print-Loop
 Repl terminalden interaktif bir şekilde JavaScript çalıştırarak sonuçları görmeye yarar. Debug, test gibi denemeler için kullanılabilir. 
+
+Asenkron Nodejs
+Nodejs asenkron bir şekilde çalışır. Senkron sirayla is yapar ve bir sonraki is icin onceki isin bitmesini bekler.
+Asenkron ise bir isi yapmaya basladiktan hemen sonra diger ise baslar bu sayede islerin birbirini bekleme zorunlulugu ortadan kalkar.
+Bu sayede mümkün oldugunsa kisa surede en cok is yapilir.
+
+V8 Javascript Engine
+V8 engine ile kodlar makine koduna cevrilir.
+
+Libuv
+Nodejs kodlarinin asenkron calismasini saglayan yapidir.

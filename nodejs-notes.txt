@@ -3,7 +3,12 @@ Node.js bir javascript çalışma ortamıdır.
 
 Nodejs nasıl çalışır?
 Event-driven: Olay odaklı çalışır. Tek thread kullanmasından ötürü istenilen işleri bir olay döngüsünde değerlendirir. 
+Event driven olay temelli yaklasimda programin akisini olaylar belirler. olay dongusu icerisinde tamamlanan islemler callbak 
+vasitasiyla islemin tamamlandigini bildirir. 
 Non-blocking: Engellenmeyen olarak çalışır. Node.js işlem sırasına koyduğu bir olayın tamamlanmasını beklemeden diğer olayı işleme alabilir. Bu şekilde iş akışı engellenmez. 
+Bloklanmayan bir yazilimda kodun bir parcasinin calismasi durumunda kodun diger bolumunun calismamasi durumudur.
+Bu sayede kodun akisini engelleyecek surede uzun islem sonucu bekleyen fonksiyonlar beklerken geri kalan kisimlar calisir yani bloklanmaz.
+İslem sonucu surenin sonunda belirlenen fonksiyon da sonucunu da yansitir.
 Asynchronous: Asenkron çalışır. Asenkron çalışma kod akışının yukardan aşağıya ilerlemediği işlemlerin birbirini beklemediği çalışma türüdür. Bu sayede işlem sırası olaya göre belirlenebilir. 
 
 Process Object
@@ -22,3 +27,9 @@ V8 engine ile kodlar makine koduna cevrilir.
 
 Libuv
 Nodejs kodlarinin asenkron calismasini saglayan yapidir.
+
+Modül 
+Nodejs uygulamasi farkli gorevleri olan farkli javascript dosyalarindan olusur ve nodejs iceridigi tum javascript dosyalarina 
+bir modul gibi davranir. Modul genelde belirli ozel bir islevi olan javascript dosyasidir.
+Bu sekilde nodejs uygulamaya ait olan dosyalari farkli bolumlere ayirarak kodun daha modularize olmasini ayni zamanda bu kod kontrolunun
+ve hata yakalamanin daha kolay olmasini saglar.

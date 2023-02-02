@@ -14,4 +14,4 @@ function alanHesapla(yaricap) {
 console.log(yaricap)
 
 // fonksiyon cagrilarak parametre olarak disardan alinan deger tanimlandi
-yaricapHesapla(yaricap)
+alanHesapla(yaricap)

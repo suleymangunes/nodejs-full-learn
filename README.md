@@ -9,3 +9,6 @@ Uçtan uca Nodejs serisi.
   - Promise kullanimi ve hata ayiklanmasi.
   - Async Await ile daha esnek ve okunabilir promise kullanimi.
   - Async await icin Try Cath ile hata yönetimi.
+### Nodejs Temelleri
+  - Event driven, Non-blocking ve Asynchronous tanimlamalari ve nodejs ortamindaki gereklilikleri.
+  - Modülerlik ve neden kullanilmasi gerektigi.

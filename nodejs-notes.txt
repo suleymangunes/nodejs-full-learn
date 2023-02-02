@@ -7,7 +7,7 @@ Non-blocking: Engellenmeyen olarak çalışır. Node.js işlem sırasına koydu�
 Asynchronous: Asenkron çalışır. Asenkron çalışma kod akışının yukardan aşağıya ilerlemediği işlemlerin birbirini beklemediği çalışma türüdür. Bu sayede işlem sırası olaya göre belirlenebilir. 
 
 Process Object
-Process nesnesi node.js çalışma ortamında o an yapılan işlerle ilgili bilgi içerir. 
+Process nesnesi nodejs çalışma ortamında o an yapılan işlerle ilgili bilgi içerir. 
 
 REPL Read-Eval-Print-Loop
 Repl terminalden interaktif bir şekilde JavaScript çalıştırarak sonuçları görmeye yarar. Debug, test gibi denemeler için kullanılabilir. 

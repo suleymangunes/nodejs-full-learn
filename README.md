@@ -12,3 +12,4 @@ Uçtan uca Nodejs serisi.
 ### Nodejs Temelleri
   - Event driven, Non-blocking ve Asynchronous tanimlamalari ve nodejs ortamindaki gereklilikleri.
   - Modülerlik ve neden kullanilmasi gerektigi.
+  - File system modulu ile CRUD islemleri.

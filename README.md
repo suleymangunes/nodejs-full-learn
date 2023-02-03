@@ -9,7 +9,10 @@ Uçtan uca Nodejs serisi.
   - Promise kullanimi ve hata ayiklanmasi.
   - Async Await ile daha esnek ve okunabilir promise kullanimi.
   - Async await icin Try Cath ile hata yönetimi.
-### Nodejs Temelleri
+### Nodejs Temelleri,
   - Event driven, Non-blocking ve Asynchronous tanimlamalari ve nodejs ortamindaki gereklilikleri.
   - Modülerlik ve neden kullanilmasi gerektigi.
   - File system modulu ile CRUD islemleri.
+  - Npm ve Package kavramlari ve 3. kisi paketlerini calisma ortamina dahil etmek.
+  - Request - Response dongusu, TCP, IP, Http, Https, Dns kavramlari hakkinda temel bilgiler.
+  - Http core modulu ile server olusturmak.

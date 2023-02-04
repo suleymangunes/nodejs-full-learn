@@ -63,3 +63,8 @@ Calisma Ortami
 Gerekli calisma ortami kurulmadan once githubda repository olusturulur. Calisma ortami repository ile iliskilendirilir.
 Npm paketlerini kullanmak icin npm initialize edilir. Projede kullanilacak sifre gibi ozel kullanimlarin githubda paylasilmamasi
 icin .gitignore dosyasi olusturulur ve ozel kisimlar bu kisimda tanimlanir.
+
+Dependencies Dev-Dependencies
+Dependencies projenin calismasinda kullanilan kutuphaneleri kapsar. Dev-Dependencies ise proje gelistirilirken kullanilan kutuphaneleri kapsar.
+Ornegin nodemon ile kodda her degisiklik yapilinca sunucu bastan calistirilmalidir ancak nodemon ile bu sorun cozulur.
+Projenin calismasinde degil sadece gelistirilmesi surecinde kullanildigi icin dev kisminda olmalidir.

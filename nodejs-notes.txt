@@ -68,3 +68,14 @@ Dependencies Dev-Dependencies
 Dependencies projenin calismasinda kullanilan kutuphaneleri kapsar. Dev-Dependencies ise proje gelistirilirken kullanilan kutuphaneleri kapsar.
 Ornegin nodemon ile kodda her degisiklik yapilinca sunucu bastan calistirilmalidir ancak nodemon ile bu sorun cozulur.
 Projenin calismasinde degil sadece gelistirilmesi surecinde kullanildigi icin dev kisminda olmalidir.
+
+Statik Dosyalar
+Bir web uygulamasi olustururken bu uygulamanin iskeleti statik dosyalardir. Olusturulmak istenen uygulamanin iskelet yapisi css, html,
+js, dosya ve gorselleri gonderilerek olur. Bir express uygulamasinda statik dosyalarin gonderilmesi icin express.static gomulu middleware fonksiyonu kullanilir.
+
+Middleware 
+Nodejs uygulamasi temelde bir request response dongusudur. İstege karsi bir cevap alinir.
+Bu istek-cevap dongusunun icerisindeki gorevi olan her fonksiyon middleware fonksiyonudur.
+Middleware kullanarak her hangi bir fonksiyon calistirilabilir. Request ve response nesneleri degistirilebilir.
+Request response dongusu sonlandirilabilir. next ile sonraki middleware cagrilabilir.
+get requestte bir middlwaredir ancak burda next ile degil send ile de sonlandirilir

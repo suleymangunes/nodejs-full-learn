@@ -20,6 +20,8 @@ Uçtan uca Nodejs serisi.
   - Koa ile server olusturmak.
 ### PCAT Projesi
   - Calisma ortami kurulumu Prettier, Nodemon, Expressjs.
+  - Middleware kavrami hakkindi bilgi.
+  - Static dosyalarin kullanilmasi.
 ### Clean Blog Projesi
   - Prettier, Nodemon, Expressjs ile calisma ortami kurulumu.
 

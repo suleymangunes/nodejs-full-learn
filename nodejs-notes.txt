@@ -79,3 +79,7 @@ Bu istek-cevap dongusunun icerisindeki gorevi olan her fonksiyon middleware fonk
 Middleware kullanarak her hangi bir fonksiyon calistirilabilir. Request ve response nesneleri degistirilebilir.
 Request response dongusu sonlandirilabilir. next ile sonraki middleware cagrilabilir.
 get requestte bir middlwaredir ancak burda next ile degil send ile de sonlandirilir
+
+Template Engine
+Degiskenlerin statik degil dinamik olmasi tercih edilir. Bunun icin Template engine kullanilir.
+Bu sayede bir static dosya ile dinmaik icerik beraber kullanilabilir. 

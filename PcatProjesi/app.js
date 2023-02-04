@@ -5,8 +5,16 @@ const express = require('express');
 // path ile ilgili islemler icin path modulu ice aktarildi
 const path = require('path');
 
+// ejs saf javascript kodlarinin kullanilmasina ayni zamanda calismaya ait degisken icerikleri de kullanmaya imkan verir
+// ejs template dosyalari gorebilmek icin varsayilan olarak views klasoru altina bakar
+// static ile dinamik dosyalarin beraber calismai icin template engine kullanilir esj bir template enginedir
+const ejs = require('ejs');
+
 // nodejste fonksiyonlar da first-class yapiya sahiptir bu yuzden bir fonksiyon degiskene atanabilir
 const app = express();
+
+//template engine ejs olarak ayarlandi
+app.set('view engine', 'ejs');
 
 // mylogger adinda bir middleware olusturuldu
 // request response loop icerisinde tum fonksiyonlar middlewaredir
@@ -24,7 +32,10 @@ app.use(myLogger);
 
 // get olusturuldu / sayfasinda photo jsonu donmesi saglandi
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'temp/index.html'));
+  // render ile / linkine gidilince views klasoru altindaki indexin calistirilmasi saglandi
+  res.render('index');
+
+  // res.sendFile(path.resolve(__dirname, 'temp/index.html'));
   // send ile next kullanilmadan da middlewarein bitmesi saglandi
 
   // const photo = {
@@ -33,6 +44,15 @@ app.get('/', (req, res) => {
   //   description: 'photo description',
   // };
   // res.send(photo);
+});
+
+// about linkine gidilince render ile viewsin altindak abouy.ejs dosyasinin calistirilmasi saglandi
+app.get('/about', (req, res) => {
+  res.render('about');
+});
+
+app.get('/add', (req, res) => {
+  res.render('add');
 });
 
 // port olusturuldu

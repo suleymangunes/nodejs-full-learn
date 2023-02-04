@@ -1,0 +1,28 @@
+{
+  "name": "cleanblogprojesi",
+  "version": "1.0.0",
+  "description": "clean blog projesi",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/suleymangunes/nodejs-full-learn.git)"
+  },
+  "keywords": [
+    "nodejs",
+    "clean",
+    "blog"
+  ],
+  "author": "suleyman gunes",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.20",
+    "prettier": "^2.8.3"
+  },
+  "dependencies": {
+    "express.js": "^1.0.0"
+  }
+}

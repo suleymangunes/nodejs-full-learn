@@ -58,3 +58,8 @@ saglayan protokollerden olusan yapidir. Iletisim TCP - IP ile kuruldu.
 HTTP
 Kurulan iletisimden sonra istemci ve sunucu arasinda anlasma da http ile saglanir. Sunucu ile istemci arasinda
 bazi kurallar vardir. Bu kurallari http saglar. HTTPS guvenlik eklenmis http'dir.
+
+Calisma Ortami
+Gerekli calisma ortami kurulmadan once githubda repository olusturulur. Calisma ortami repository ile iliskilendirilir.
+Npm paketlerini kullanmak icin npm initialize edilir. Projede kullanilacak sifre gibi ozel kullanimlarin githubda paylasilmamasi
+icin .gitignore dosyasi olusturulur ve ozel kisimlar bu kisimda tanimlanir.

@@ -19,4 +19,7 @@ Uçtan uca Nodejs serisi.
   - Expressjs ile server olusturmak.
   - Koa ile server olusturmak.
 ### PCAT Projesi
-  - Calisma ortami kurulumu.
+  - Calisma ortami kurulumu Prettier, Nodemon, Expressjs.
+### Clean Blog Projesi
+  - Prettier, Nodemon, Expressjs ile calisma ortami kurulumu.
+

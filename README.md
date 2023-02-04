@@ -9,7 +9,7 @@ Uçtan uca Nodejs serisi.
   - Promise kullanimi ve hata ayiklanmasi.
   - Async Await ile daha esnek ve okunabilir promise kullanimi.
   - Async await icin Try Cath ile hata yönetimi.
-### Nodejs Temelleri,
+### Nodejs Temelleri
   - Event driven, Non-blocking ve Asynchronous tanimlamalari ve nodejs ortamindaki gereklilikleri.
   - Modülerlik ve neden kullanilmasi gerektigi.
   - File system modulu ile CRUD islemleri.
@@ -18,3 +18,5 @@ Uçtan uca Nodejs serisi.
   - Http core modulu ile server olusturmak.
   - Expressjs ile server olusturmak.
   - Koa ile server olusturmak.
+### PCAT Projesi
+  - Calisma ortami kurulumu.

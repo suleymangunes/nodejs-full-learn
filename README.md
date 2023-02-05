@@ -25,7 +25,15 @@ Uçtan uca Nodejs serisi.
   - Template engine kavrami hakkinda bilgi.
   - Ejs kullanimi.
   - MongoDb ve CRUD islemleri.
+  - Mongoose ile database olusturma.
+  - Veritabanina veri ekleme ve okuma.
+  - MVC kavrami hakkinda bilgi ve uygulama.
 ### Clean Blog Projesi
   - Prettier, Nodemon, Expressjs ile calisma ortami kurulumu.
   - Middleware, Template Engine ve Ejs bilgilendirme.
+  - Ejs kullanimi.
+  - MongoDb ve CRUD islemleri.
+  - Mongoose ile database olusturma.
+  - Veritabanina veri ekleme ve okuma.
+  - MVC kavrami hakkinda bilgi ve uygulama.
 

@@ -56,6 +56,19 @@ app.post('/add', async (req, res) => {
   res.redirect('/');
 });
 
+// gelen id bilgisni alarak veritabanindan bulan route
+app.get('/myposts/:id', async (req, res) => {
+  // console.log(req.params.id);
+  // alinan id ile post cekildi
+  const mypost = await Post.findById(req.params.id);
+  // console.log(mypost);
+  // cekilen post istenen html koduna icerik olarak gonderildi
+  // bu kisimda post ejs icerigine ekleme yapilmalidir
+  res.render('post', {
+    mypost,
+  });
+});
+
 const port = 3000;
 
 // tanimlanan porta baglanarak sunucu baslatildi

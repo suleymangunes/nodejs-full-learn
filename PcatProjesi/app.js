@@ -88,6 +88,17 @@ app.post('/photos', async (req, res) => {
   res.redirect('/');
 });
 
+// id degerine gore tiklanan fotografin id bilgisi alindi
+app.get('/photos/:id', async (req, res) => {
+  // console.log(req.params.id);
+  // alinan id bilgisi ile veritabanindaki documente ulasildi
+  const photo = await Photo.findById(req.params.id);
+  // isetnilen sayfaya gonderildi ve sayfada gosterilmesi saglandi
+  res.render('photo', {
+    photo,
+  });
+});
+
 // port olusturuldu
 const port = 3000;
 

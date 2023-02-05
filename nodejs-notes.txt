@@ -83,3 +83,27 @@ get requestte bir middlwaredir ancak burda next ile degil send ile de sonlandiri
 Template Engine
 Degiskenlerin statik degil dinamik olmasi tercih edilir. Bunun icin Template engine kullanilir.
 Bu sayede bir static dosya ile dinmaik icerik beraber kullanilabilir. 
+
+Veritabani
+Verilerin depolandigi ve veriler uzerinde islem yapilabilen yazilimlardir. Veriler uygulama disinda tutularak verilerle ilgili karmasik  islemler
+veritabani yazilimlari tarafindan yapilir. Veri turleri ve veri saklama sekillerine gore veritabanlari genel olarak sql ve nosql olarak ayrilir.
+
+SQL NoSQL
+Sql sabit satir ve sutunlardan olusan tablolardir. Nosql ise json dokumanlardan collectionlardan olusur.
+Schema yapisi sql de kati nosql de degisebilir. sql diket olarak, nosql yatay olarak olceklenebilir. Joins sql de gereklidir. nosqlde joins gerekli degildir.
+Sql: MySql, mssql, postgresql - Nosql: mongodb, couchdb, redis
+
+MongoDB
+Dokuman tabanli genel amacli kullanima uygun dagitik bir veritabani yazilimidir.
+show dbs - veritabanlarini gosterir
+show collections - collectionlari gosterir
+use veri-tabani-ismi - veritabani olusturur ve secer daha once varsa sadece secim yapar
+db.collection-ismi.insertOne({}) - collection olusturu ve icerisine veri ekler one ile tek many ile cok
+db.collection-ismi.find() - collection icerigini gosterir
+db.collection-ismi.find( {icerik: "icerik"}) - collection iceriginde eslesen degerleri gosterir
+{icerik: { $lt: sayi}} - sayidan less then daha kucuk olan icerik degerlerini listeler
+yeni collection eklendiginde id belirtilmezse unique id kendiliginden olusturulur
+db.collection-ismi.updateOne({ icerik: "mongo: }, {$set: { baskadegeri: yenideger}}) - icerik degeri mongo olan ilki alir set ile istenilen degeri gunceller
+db.collection-ismi.delete - istenilen document silinir
+not: sonunda one olanlar tek bir tanede islem yapar many olanlar coklu islem yapar
+db.dropDatabase() - aktif olan database silinir

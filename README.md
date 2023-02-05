@@ -24,6 +24,7 @@ Uçtan uca Nodejs serisi.
   - Static dosyalarin kullanilmasi.
   - Template engine kavrami hakkinda bilgi.
   - Ejs kullanimi.
+  - MongoDb ve CRUD islemleri.
 ### Clean Blog Projesi
   - Prettier, Nodemon, Expressjs ile calisma ortami kurulumu.
   - Middleware, Template Engine ve Ejs bilgilendirme.

@@ -10,6 +10,15 @@ const path = require('path');
 // static ile dinamik dosyalarin beraber calismai icin template engine kullanilir esj bir template enginedir
 const ejs = require('ejs');
 
+// resim yuklemek icin express file upload kutuphanesi ice aktarildi
+const fileUpload = require('express-fileupload');
+
+// dosya islemleri icin fs modulu ice aktarildi
+const fs = require('fs');
+
+// put islemi yapmak icin kutuphane ice aktarildi
+const methodOverride = require('method-override');
+
 // mongoose ile veritabaninda kullanilmak uzere resim modeli olusturuldu
 const Photo = require('./models/Photo');
 const { default: mongoose } = require('mongoose');
@@ -46,10 +55,15 @@ app.use(express.urlencoded({ extends: true }));
 // gelen verilerin json seklinde encodu tanimlandi
 app.use(express.json());
 
+// resim yuklemek icin middleware
+app.use(fileUpload());
+
+app.use(methodOverride('_method'));
+
 // ROUTES
 // get olusturuldu / sayfasinda photo jsonu donmesi saglandi
 app.get('/', async (req, res) => {
-  const photos = await Photo.find({});
+  const photos = await Photo.find({}).sort('-dateCreated');
 
   // render ile / linkine gidilince views klasoru altindaki indexin calistirilmasi saglandi
   res.render('index', {
@@ -84,8 +98,47 @@ app.post('/photos', async (req, res) => {
   // middleware yazilarak express ile cozduldu
   // console.log(req.body);
   // gonderdikten sonra tekrar anasayfaya donmesi saglandi
-  await Photo.create(req.body);
-  res.redirect('/');
+
+  // console.log(req.files.image);
+
+  // await Photo.create(req.body);
+  // res.redirect('/');
+
+  // resimlerin yuklenecegi klasor yoksa
+  const uploadDir = 'public/uploads';
+
+  // eger klasor yoksa klasorun olusturulmasi saglandi
+  // ancak senkron bir sekilde calistirildi
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+  }
+
+  // req.files.image ile resim bilgileri alindi
+  let uploadedImage = req.files.image;
+  // uploadpath ile bulunan klasorde resimlerin kaydedilecegi kisim tanimlandi
+  // veritabaninda resimlerin yolu tanimlanir
+  // dirname ile bulunan klasor tanimlandi ve pulicin altinda uploads adinda klasor olusturuldu ve resmin adi verildi
+  let uploadPath = __dirname + '/public/uploads/' + uploadedImage.name;
+
+  // upload image mv ile resmin tasinmasi icin fonksiyon tanimlandi
+  uploadedImage.mv(
+    // resim yuklenirken mv ile klasore yonlendirilmesi saglandi
+    uploadPath,
+    // islemelrin yapilacagi async fonksiyon tanimlandi
+    async () => {
+      // photo modeli ile resim olusturuldu ve icerige gore olusturuldu
+      await Photo.create({
+        // ... ile iceirkte ne varsa eslemesi saglandi
+        ...req.body,
+        // name description vs body ile geldi
+        // image ise uploadsin altinda name ile eklendi
+        // veritabaninda resmin yolu tutulur
+        image: '/uploads/' + uploadedImage.name,
+      });
+
+      res.redirect('/');
+    }
+  );
 });
 
 // id degerine gore tiklanan fotografin id bilgisi alindi
@@ -97,6 +150,35 @@ app.get('/photos/:id', async (req, res) => {
   res.render('photo', {
     photo,
   });
+});
+
+// update butonuna tiklaninca edit sayfasina id degeri ile gonderilmesi saglandi
+// bu islem zaman alacagi icin async olmasi ve zaman alan islemde await ile beklenmesi saglandi
+app.get('/photos/edit/:id', async (req, res) => {
+  // photo veritabanindan id degeri uyan veri cekildi
+  const photomine = await Photo.findOne({
+    _id: req.params.id,
+  });
+  // istenen sayfaya gelen veri ile gidilmesi saglandi
+  res.render('edit', {
+    photomine,
+  });
+});
+
+// put ile guncelleme islemi yapilir
+// photos sayfasinda id degeri ile ulasilir
+app.put('/photos/:id', async (req, res) => {
+  // photo veritabanindan findone ile istenilen id degerli fotograf bulundu
+  const photomine = await Photo.findOne({
+    _id: req.params.id,
+  });
+  // bulunan fotogratgin title ve description degeri istekle gelen degerlerle degistirildi
+  photomine.title = req.body.title;
+  photomine.description = req.body.description;
+  // fotograf kaydedildi
+  photomine.save();
+  // redirect ile fogoragin safyasina gidildi
+  res.redirect(`/photos/${req.params.id}`);
 });
 
 // port olusturuldu

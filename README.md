@@ -28,7 +28,7 @@ Uçtan uca Nodejs serisi.
   - Mongoose ile database olusturma.
   - Veritabanina veri ekleme ve okuma.
   - MVC kavrami hakkinda bilgi ve uygulama.
-  - Resim ekleme ve güncelleme.
+  - Resim ekleme, silme ve güncelleme.
 ### Clean Blog Projesi
   - Prettier, Nodemon, Expressjs ile calisma ortami kurulumu.
   - Middleware, Template Engine ve Ejs bilgilendirme.

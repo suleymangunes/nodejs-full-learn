@@ -107,3 +107,8 @@ db.collection-ismi.updateOne({ icerik: "mongo: }, {$set: { baskadegeri: yenidege
 db.collection-ismi.delete - istenilen document silinir
 not: sonunda one olanlar tek bir tanede islem yapar many olanlar coklu islem yapar
 db.dropDatabase() - aktif olan database silinir
+
+MVC Modal-View-Controller
+Modal uygulamanin veritabaniyla haberlesmesini saglayan yapilari icerir.
+Controller kullanici tarafindan gelen isteklere karsi yapilan yonlendirmelerdir.
+View klasorunde uygulamanin sunum kismi bulunur.

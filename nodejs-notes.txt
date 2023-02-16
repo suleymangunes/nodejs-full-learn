@@ -97,7 +97,7 @@ MongoDB
 Dokuman tabanli genel amacli kullanima uygun dagitik bir veritabani yazilimidir.
 show dbs - veritabanlarini gosterir
 show collections - collectionlari gosterir
-use veri-tabani-ismi - veritabani olusturur ve secer daha once varsa sadece secim yapar
+use veri-tabani-ismi - veritabani olustururs ve secer daha once varsa sadece secim yapar
 db.collection-ismi.insertOne({}) - collection olusturu ve icerisine veri ekler one ile tek many ile cok
 db.collection-ismi.find() - collection icerigini gosterir
 db.collection-ismi.find( {icerik: "icerik"}) - collection iceriginde eslesen degerleri gosterir

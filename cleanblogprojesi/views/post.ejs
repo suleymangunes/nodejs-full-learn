@@ -16,6 +16,15 @@
             <span class="meta">Posted by
               <a href="#">Start Bootstrap</a>
               <%= mypost.dateCreated %></span>
+            
+              <form method="POST" action="/post/<%= mypost._id %>?_method=DELETE">  
+                <button type="submit" class="subheading" href="">DELETE</button>
+              </form>
+
+              <form method="POST" action="/post/edit/<%= mypost._id %>" >
+                <button class="subheading" href="">UPDATE</button>
+              </form>
+
           </div>
         </div>
       </div>

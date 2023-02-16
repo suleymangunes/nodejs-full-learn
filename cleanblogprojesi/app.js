@@ -9,7 +9,14 @@ const app = express();
 
 // mongoose paketi ice aktarildi
 const mongoose = require('mongoose');
+
+// method override
+const methodOverride = require('method-override');
+
 const Post = require('./models/Post');
+
+const postController = require('./controllers/postControllers');
+const pageController = require('./controllers/pageControllers');
 
 mongoose.set('strictQuery', false);
 
@@ -24,50 +31,29 @@ app.use(express.static('public'));
 app.use(express.urlencoded({ extends: true }));
 app.use(express.json());
 
+app.use(
+  methodOverride('_method', {
+    methods: ['POST', 'GET'],
+  })
+);
+
 // get ile istekte bulunuldu
-app.get('/', async (req, res) => {
-  const posts = await Post.find({}).sort({ dateCreated: -1 });
-  res.render('index', {
-    posts,
-  });
-  console.log(posts.length);
-  // const blog = {
-  //   id: 1,
-  //   title: 'Blog title',
-  //   description: 'Blog description',
-  // };
+app.get('/', postController.getAllPost);
 
-  // res.send(blog);
-});
+app.get('/about', pageController.getAboutPage);
 
-app.get('/about', (req, res) => {
-  res.render('about');
-});
+app.get('/add_post', pageController.getAddPage);
 
-app.get('/add_post', (req, res) => {
-  res.render('add_post');
-});
-
-app.post('/add', async (req, res) => {
-  console.log('gidildi');
-  // console.log(req);
-  console.log(req.body);
-  await Post.create(req.body);
-  res.redirect('/');
-});
+app.post('/add', postController.addPost);
 
 // gelen id bilgisni alarak veritabanindan bulan route
-app.get('/myposts/:id', async (req, res) => {
-  // console.log(req.params.id);
-  // alinan id ile post cekildi
-  const mypost = await Post.findById(req.params.id);
-  // console.log(mypost);
-  // cekilen post istenen html koduna icerik olarak gonderildi
-  // bu kisimda post ejs icerigine ekleme yapilmalidir
-  res.render('post', {
-    mypost,
-  });
-});
+app.get('/myposts/:id', pageController.getPostPage);
+
+app.delete('/post/:id', postController.deletePost);
+
+app.post('/post/edit/:id', pageController.getEditPage);
+
+app.put('/post/update/:id', postController.editPost);
 
 const port = 3000;
 

@@ -109,6 +109,11 @@ not: sonunda one olanlar tek bir tanede islem yapar many olanlar coklu islem yap
 db.dropDatabase() - aktif olan database silinir
 
 MVC Modal-View-Controller
+Mvc yazilim mimari desenidir.
+Modal projenin iş mantiğinin olusturuldugu bolumdur. Is mantigiyle beraber dogrulama ve veri erisim islemleri de bu bolumde gerceklestirilmektedir.
 Modal uygulamanin veritabaniyla haberlesmesini saglayan yapilari icerir.
+Controller projenin is sureclerini kontrol eden bolumdur. Bu bolumde view ile modal arasinda baglanti kurulur.
 Controller kullanici tarafindan gelen isteklere karsi yapilan yonlendirmelerdir.
+Kullanicidan gelen istekler controllerda degerlendirilir. İstegin detayina gore hangi islemlerin yapilacagi ve kullaniciya hangi viewin donecegi belirtilir.
+View projenin arayuzlerinin olusturuldugu bolumdur.Viewin gorevi kullanicilardan alinan istekleri controllera iletmektir.
 View klasorunde uygulamanin sunum kismi bulunur.

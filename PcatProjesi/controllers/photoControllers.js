@@ -9,14 +9,43 @@ const fs = require('fs');
 // exports ile fonksiyonun disardan kullanilabilmesi saglandi
 // tum fotograflari alan fonksiyon tanimlandii
 exports.getAllPhotos = async (req, res) => {
-  // photo veritabanindan veriler alindi ve zaman gore siralandi
-  const photos = await Photo.find({}).sort('-dateCreated');
+  // page ile istenilen sayfa belirlenir eger herhangi bir sey belirtilmemisse 1 olmasi saglanir
+  const page = req.query.page || 1;
+  // her sayfada olmasi istenen post sayisi belirlendi
+  const photosPerPage = 2;
 
-  // render ile / linkine gidilince views klasoru altindaki indexin calistirilmasi saglandi
-  // index icerisine photos modeli de gonderildi bu sayede verilerin gosterilmesi saglanacaktir
+  // total photos ile toplamda veritabaninda olan fotograf sayisi belirlendi
+  const totalPhotos = await Photo.find().countDocuments();
+
+  // veritanbanindan fotograflar cekildi
+  const photos = await Photo.find({})
+    // cekilen veriler zamana gore siralandi
+    .sort('-dateCreated')
+    // girilen sayfa sayisindan 1 eksilterek 2 ile carpilir ve gelen verilerden sonuc kadar ileri atlanir
+    // ornerin 1 ise 0*2 den o olur ve atlama olmaz
+    // 2 ise 1*2 den ilk ikisi atlanir bu sayede her sayfa icin verileri siralani
+    .skip((page - 1) * photosPerPage)
+    // her sayfada belirli sayida veri olacagi icin limit ile istenen kadarin gosterilmesi saglandi
+    .limit(photosPerPage);
+
+  // index sayfasina gidildi
   res.render('index', {
+    // veri olarak fotograf verileri gonderildi
     photos,
+    // current ile sayfa sirasi gonderildi
+    current: page,
+    // pages ile de toplam veri sayisina gore sayfalandirma numaralari gosterildi
+    pages: Math.ceil(totalPhotos / photosPerPage),
   });
+
+  // // photo veritabanindan veriler alindi ve zaman gore siralandi
+  // const photos = await Photo.find({}).sort('-dateCreated');
+
+  // // render ile / linkine gidilince views klasoru altindaki indexin calistirilmasi saglandi
+  // // index icerisine photos modeli de gonderildi bu sayede verilerin gosterilmesi saglanacaktir
+  // res.render('index', {
+  //   photos,
+  // });
 
   // res.sendFile(path.resolve(__dirname, 'temp/index.html'));
   // send ile next kullanilmadan da middlewarein bitmesi saglandi

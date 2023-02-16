@@ -58,7 +58,12 @@ app.use(express.json());
 // resim yuklemek icin middleware
 app.use(fileUpload());
 
-app.use(methodOverride('_method'));
+// method override kisminda hangi metotlarin kullaniacagi tanimlandi
+app.use(
+  methodOverride('_method', {
+    methods: ['POST', 'GET'],
+  })
+);
 
 // ROUTES
 // get olusturuldu / sayfasinda photo jsonu donmesi saglandi
@@ -165,6 +170,9 @@ app.get('/photos/edit/:id', async (req, res) => {
   });
 });
 
+// put islemini cogu taryici desteklemez bu yuzden post ile putu simule edilir
+// bunun icin methodoverride paketi kurulur
+// bu paket ile post yapan methodun icerisinde methodun put oldugu belirtilirs
 // put ile guncelleme islemi yapilir
 // photos sayfasinda id degeri ile ulasilir
 app.put('/photos/:id', async (req, res) => {
@@ -179,6 +187,20 @@ app.put('/photos/:id', async (req, res) => {
   photomine.save();
   // redirect ile fogoragin safyasina gidildi
   res.redirect(`/photos/${req.params.id}`);
+});
+
+// silme islemi icin id uzerinden silme yapilacakti
+// methodoverride kismnda methodlar eklenmezse calismayacakti
+app.delete('/photos/:id', async (req, res) => {
+  // console.log(req.params.id);
+  // await Photo.findByIdAndRemove(req.params.id);
+  const photo = await Photo.findOne({ _id: req.params.id });
+  // silinecek resmin yolu ve resim tanimlandi
+  let deletedImage = __dirname + '/public' + photo.image;
+
+  fs.unlinkSync(deletedImage);
+  await Photo.findByIdAndRemove(req.params.id);
+  res.redirect('/');
 });
 
 // port olusturuldu

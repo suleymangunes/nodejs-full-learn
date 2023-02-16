@@ -36,5 +36,6 @@ Uçtan uca Nodejs serisi.
   - MongoDb ve CRUD islemleri.
   - Mongoose ile database olusturma.
   - Veritabanina veri ekleme ve okuma.
+  - Post ekleme, silme ve güncelleme.
   - MVC kavrami hakkinda bilgi ve uygulama.
 

@@ -23,6 +23,12 @@ const methodOverride = require('method-override');
 const Photo = require('./models/Photo');
 const { default: mongoose } = require('mongoose');
 
+// fotograf ile ilgili islemler icin controller olusturuldu ve onun uzerinden islemler cagrildi
+const photoController = require('./controllers/photoControllers');
+
+// sayfalar arasindaki route islemi icin controller olusturuldu
+const pageController = require('./controllers/pageController');
+
 // nodejste fonksiyonlar da first-class yapiya sahiptir bu yuzden bir fonksiyon degiskene atanabilir
 const app = express();
 
@@ -67,141 +73,32 @@ app.use(
 
 // ROUTES
 // get olusturuldu / sayfasinda photo jsonu donmesi saglandi
-app.get('/', async (req, res) => {
-  const photos = await Photo.find({}).sort('-dateCreated');
-
-  // render ile / linkine gidilince views klasoru altindaki indexin calistirilmasi saglandi
-  res.render('index', {
-    photos,
-  });
-
-  // res.sendFile(path.resolve(__dirname, 'temp/index.html'));
-  // send ile next kullanilmadan da middlewarein bitmesi saglandi
-
-  // const photo = {
-  //   id: 1,
-  //   name: 'photo name',
-  //   description: 'photo description',
-  // };
-  // res.send(photo);
-});
+app.get('/', photoController.getAllPhotos);
 
 // about linkine gidilince render ile viewsin altindak abouy.ejs dosyasinin calistirilmasi saglandi
-app.get('/about', (req, res) => {
-  res.render('about');
-});
+app.get('/about', pageController.getAboutPage);
 
-app.get('/add', (req, res) => {
-  res.render('add');
-});
+app.get('/add', pageController.getAddPage);
 
 // bir veri alirken get gonderirken post kullaniriz
 // photos linkine yonlendirince
-app.post('/photos', async (req, res) => {
-  // gonderilen istegin iceriginin okunmasi saglandi ancak dogru okunmadi
-  // bunun nedeni encode isleminin olmamasi
-  // middleware yazilarak express ile cozduldu
-  // console.log(req.body);
-  // gonderdikten sonra tekrar anasayfaya donmesi saglandi
-
-  // console.log(req.files.image);
-
-  // await Photo.create(req.body);
-  // res.redirect('/');
-
-  // resimlerin yuklenecegi klasor yoksa
-  const uploadDir = 'public/uploads';
-
-  // eger klasor yoksa klasorun olusturulmasi saglandi
-  // ancak senkron bir sekilde calistirildi
-  if (!fs.existsSync(uploadDir)) {
-    fs.mkdirSync(uploadDir);
-  }
-
-  // req.files.image ile resim bilgileri alindi
-  let uploadedImage = req.files.image;
-  // uploadpath ile bulunan klasorde resimlerin kaydedilecegi kisim tanimlandi
-  // veritabaninda resimlerin yolu tanimlanir
-  // dirname ile bulunan klasor tanimlandi ve pulicin altinda uploads adinda klasor olusturuldu ve resmin adi verildi
-  let uploadPath = __dirname + '/public/uploads/' + uploadedImage.name;
-
-  // upload image mv ile resmin tasinmasi icin fonksiyon tanimlandi
-  uploadedImage.mv(
-    // resim yuklenirken mv ile klasore yonlendirilmesi saglandi
-    uploadPath,
-    // islemelrin yapilacagi async fonksiyon tanimlandi
-    async () => {
-      // photo modeli ile resim olusturuldu ve icerige gore olusturuldu
-      await Photo.create({
-        // ... ile iceirkte ne varsa eslemesi saglandi
-        ...req.body,
-        // name description vs body ile geldi
-        // image ise uploadsin altinda name ile eklendi
-        // veritabaninda resmin yolu tutulur
-        image: '/uploads/' + uploadedImage.name,
-      });
-
-      res.redirect('/');
-    }
-  );
-});
+app.post('/photos', photoController.createPhoto);
 
 // id degerine gore tiklanan fotografin id bilgisi alindi
-app.get('/photos/:id', async (req, res) => {
-  // console.log(req.params.id);
-  // alinan id bilgisi ile veritabanindaki documente ulasildi
-  const photo = await Photo.findById(req.params.id);
-  // isetnilen sayfaya gonderildi ve sayfada gosterilmesi saglandi
-  res.render('photo', {
-    photo,
-  });
-});
-
-// update butonuna tiklaninca edit sayfasina id degeri ile gonderilmesi saglandi
-// bu islem zaman alacagi icin async olmasi ve zaman alan islemde await ile beklenmesi saglandi
-app.get('/photos/edit/:id', async (req, res) => {
-  // photo veritabanindan id degeri uyan veri cekildi
-  const photomine = await Photo.findOne({
-    _id: req.params.id,
-  });
-  // istenen sayfaya gelen veri ile gidilmesi saglandi
-  res.render('edit', {
-    photomine,
-  });
-});
+app.get('/photos/:id', photoController.getPhoto);
 
 // put islemini cogu taryici desteklemez bu yuzden post ile putu simule edilir
 // bunun icin methodoverride paketi kurulur
 // bu paket ile post yapan methodun icerisinde methodun put oldugu belirtilirs
 // put ile guncelleme islemi yapilir
 // photos sayfasinda id degeri ile ulasilir
-app.put('/photos/:id', async (req, res) => {
-  // photo veritabanindan findone ile istenilen id degerli fotograf bulundu
-  const photomine = await Photo.findOne({
-    _id: req.params.id,
-  });
-  // bulunan fotogratgin title ve description degeri istekle gelen degerlerle degistirildi
-  photomine.title = req.body.title;
-  photomine.description = req.body.description;
-  // fotograf kaydedildi
-  photomine.save();
-  // redirect ile fogoragin safyasina gidildi
-  res.redirect(`/photos/${req.params.id}`);
-});
+app.put('/photos/:id', photoController.updatePhoto);
 
 // silme islemi icin id uzerinden silme yapilacakti
 // methodoverride kismnda methodlar eklenmezse calismayacakti
-app.delete('/photos/:id', async (req, res) => {
-  // console.log(req.params.id);
-  // await Photo.findByIdAndRemove(req.params.id);
-  const photo = await Photo.findOne({ _id: req.params.id });
-  // silinecek resmin yolu ve resim tanimlandi
-  let deletedImage = __dirname + '/public' + photo.image;
+app.delete('/photos/:id', photoController.deletePhoto);
 
-  fs.unlinkSync(deletedImage);
-  await Photo.findByIdAndRemove(req.params.id);
-  res.redirect('/');
-});
+app.get('/photos/edit/:id', pageController.getEditPage);
 
 // port olusturuldu
 const port = 3000;

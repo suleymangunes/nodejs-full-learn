@@ -29,6 +29,7 @@ Uçtan uca Nodejs serisi.
   - Veritabanina veri ekleme ve okuma.
   - MVC kavrami hakkinda bilgi ve uygulama.
   - Resim ekleme, silme ve güncelleme.
+  - Pagination.
 ### Clean Blog Projesi
   - Prettier, Nodemon, Expressjs ile calisma ortami kurulumu.
   - Middleware, Template Engine ve Ejs bilgilendirme.

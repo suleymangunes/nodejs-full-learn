@@ -20,7 +20,16 @@ const pageController = require('./controllers/pageControllers');
 
 mongoose.set('strictQuery', false);
 
-mongoose.connect('mongodb://localhost/cleanblog-test-db');
+mongoose
+  .connect(
+    'mongodb+srv://suleymangunesmail:Jv5HYqMZbG9558F9@clusterclean.fmtk31k.mongodb.net/clean-db?retryWrites=true&w=majority'
+  )
+  .then(() => {
+    console.log('database connectes');
+  })
+  .catch(() => {
+    console.log(err);
+  });
 
 // ejs template engine olarak ayarlandi
 app.set('view engine', 'ejs');

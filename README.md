@@ -30,6 +30,7 @@ Uçtan uca Nodejs serisi.
   - MVC kavrami hakkinda bilgi ve uygulama.
   - Resim ekleme, silme ve güncelleme.
   - Pagination.
+  - Onrender ve Mongo Atlas ile projenin web ortamina yüklenmesi.
 ### Clean Blog Projesi
   - Prettier, Nodemon, Expressjs ile calisma ortami kurulumu.
   - Middleware, Template Engine ve Ejs bilgilendirme.
@@ -39,4 +40,5 @@ Uçtan uca Nodejs serisi.
   - Veritabanina veri ekleme ve okuma.
   - Post ekleme, silme ve güncelleme.
   - MVC kavrami hakkinda bilgi ve uygulama.
+  - Onrender ve Mongo Atlas ile projenin web ortamina yüklenmesi.
 

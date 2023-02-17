@@ -36,7 +36,16 @@ const app = express();
 mongoose.set('strictQuery', false);
 
 // veri tabaniyla baglanti kuruldu
-mongoose.connect('mongodb://localhost/pcat-test-db');
+mongoose
+  .connect(
+    'mongodb+srv://suleymangunespcat:YR6DsLUICCVPklMU@cluster0.gypayz1.mongodb.net/?retryWrites=true&w=majority'
+  )
+  .then(() => {
+    console.log('database connected');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 //template engine ejs olarak ayarlandi
 app.set('view engine', 'ejs');

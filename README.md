@@ -41,4 +41,5 @@ Uçtan uca Nodejs serisi.
   - Post ekleme, silme ve güncelleme.
   - MVC kavrami hakkinda bilgi ve uygulama.
   - Onrender ve Mongo Atlas ile projenin web ortamina yüklenmesi.
-
+### SmartEdu project
+  - Nodemon, Expressjs ile calisma ortami kurulumu.

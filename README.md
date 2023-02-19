@@ -46,3 +46,4 @@ Uçtan uca Nodejs serisi.
 ### SmartEdu project
   - Nodemon, Expressjs ile calisma ortami kurulumu.
   - Ejs ile Template engine.
+  - Http durum kodlari.

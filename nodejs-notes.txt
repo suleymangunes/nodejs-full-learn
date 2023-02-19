@@ -69,6 +69,7 @@ Mvc yazilim mimari desenidir. Modal projenin iş mantiğinin olusturuldugu bolum
 
 HTTP Status Code
 İstemci ile sunucu arasindaki aktarim islemi sirasinda neler oldugunu bize ifade eden uc haneli numaralardir.
+Programin sağlık durumunu kontrol etmek icin durum kodlari kullanilir.
 1xx bilgi istegi
 2xx basarili
 3xx yonlendirme

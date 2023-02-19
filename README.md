@@ -47,3 +47,4 @@ Uçtan uca Nodejs serisi.
   - Nodemon, Expressjs ile calisma ortami kurulumu.
   - Ejs ile Template engine.
   - Http durum kodlari.
+  - Routing.

@@ -19,6 +19,7 @@ Uçtan uca Nodejs serisi.
   - Expressjs ile server olusturmak.
   - Koa ile server olusturmak.
 ### PCAT Projesi
+  __Resimlerin baslik ve aciklama bilgisi ile eklenlip, guncellendiği ve silindigi fotograf paylasim sitesi.__
   - Calisma ortami kurulumu Prettier, Nodemon, Expressjs.
   - Middleware kavrami hakkindi bilgi.
   - Static dosyalarin kullanilmasi.
@@ -32,6 +33,7 @@ Uçtan uca Nodejs serisi.
   - Pagination.
   - Onrender ve Mongo Atlas ile projenin web ortamina yüklenmesi.
 ### Clean Blog Projesi
+  __Postlarin baslik, aciklama ve zaman bilgisi ile eklenip, guncellendigi ve silindigi fotograf paylasim sitesi.__
   - Prettier, Nodemon, Expressjs ile calisma ortami kurulumu.
   - Middleware, Template Engine ve Ejs bilgilendirme.
   - Ejs kullanimi.
@@ -41,4 +43,5 @@ Uçtan uca Nodejs serisi.
   - Post ekleme, silme ve güncelleme.
   - MVC kavrami hakkinda bilgi ve uygulama.
   - Onrender ve Mongo Atlas ile projenin web ortamina yüklenmesi.
-
+### SmartEdu project
+  - Nodemon, Expressjs ile calisma ortami kurulumu.

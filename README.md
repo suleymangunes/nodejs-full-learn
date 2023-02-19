@@ -48,3 +48,4 @@ Uçtan uca Nodejs serisi.
   - Ejs ile Template engine.
   - Http durum kodlari.
   - Routing.
+  - MVc mimarisi.

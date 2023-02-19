@@ -1,5 +1,8 @@
+// paket siralamasi yapilirken once 3. parti kutuphaneler daha sonra core kutuphaneler yazilir
 // epxress kutuphanesi ice aktarildi
 const express = require('express');
+// route fonksiyonu ice aktarildi
+const pageRoute = require('./routes/pageRoute');
 
 // express kutuphanesinden nesne olusturuldu
 const app = express();
@@ -11,20 +14,13 @@ app.set('view engine', 'ejs');
 // static dosyalarin public icerisinde oldugu belirtildi
 app.use(express.static('public'));
 
-// get ile route olusturuldu
-app.get('/', (req, res) => {
-  // res.status(200).send('index sayfasi');
-  res.render('index', {
-    page_name: 'index',
-  });
-});
+// ROUTES
+// / istegine karsilik pageroute fonksiyonuna gidilmesi saglandi
+// bu fonksiyon da express uzerinden olusturulan pageroute pagecontrollerdaki fonksiyonlari calistirir
+app.get('/', pageRoute);
 
 // about sayfasina gidildi
-app.get('/about', (req, res) => {
-  res.render('about', {
-    page_name: 'about',
-  });
-});
+app.get('/about', pageRoute);
 
 // port ayarlandi
 const port = 3000;

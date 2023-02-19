@@ -45,3 +45,4 @@ Uçtan uca Nodejs serisi.
   - Onrender ve Mongo Atlas ile projenin web ortamina yüklenmesi.
 ### SmartEdu project
   - Nodemon, Expressjs ile calisma ortami kurulumu.
+  - Ejs ile Template engine.

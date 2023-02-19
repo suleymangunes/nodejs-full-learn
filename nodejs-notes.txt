@@ -66,3 +66,11 @@ Dokuman tabanli genel amacli kullanima uygun dagitik bir veritabani yazilimidir.
 
 MVC Modal-View-Controller
 Mvc yazilim mimari desenidir. Modal projenin iş mantiğinin olusturuldugu bolumdur. Is mantigiyle beraber dogrulama ve veri erisim islemleri de bu bolumde gerceklestirilmektedir. Modal uygulamanin veritabaniyla haberlesmesini saglayan yapilari icerir. Controller projenin is sureclerini kontrol eden bolumdur. Bu bolumde view ile modal arasinda baglanti kurulur. Controller kullanici tarafindan gelen isteklere karsi yapilan yonlendirmelerdir. Kullanicidan gelen istekler controllerda degerlendirilir. İstegin detayina gore hangi islemlerin yapilacagi ve kullaniciya hangi viewin donecegi belirtilir. View projenin arayuzlerinin olusturuldugu bolumdur.Viewin gorevi kullanicilardan alinan istekleri controllera iletmektir. View klasorunde uygulamanin sunum kismi bulunur.
+
+HTTP Status Code
+İstemci ile sunucu arasindaki aktarim islemi sirasinda neler oldugunu bize ifade eden uc haneli numaralardir.
+1xx bilgi istegi
+2xx basarili
+3xx yonlendirme
+4xx genelde sitede bir sayfa bulunmadiginda gorunur genelde mustesi hatasi olarak gecer 
+5xx sunucu hatasi 

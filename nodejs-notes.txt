@@ -75,3 +75,6 @@ Programin sağlık durumunu kontrol etmek icin durum kodlari kullanilir.
 3xx yonlendirme
 4xx genelde sitede bir sayfa bulunmadiginda gorunur genelde mustesi hatasi olarak gecer 
 5xx sunucu hatasi 
+
+API - Application Programming Interface
+İki yazılım bileseninin belirli tanimlar ve protokoller araciligiyla birbirleriyle iletisim kurmasina olanak taniyan mekanizmalardir. Api mimarisi genellikle istemci ve sunucu bakimindan calisir. İstegi gonderen uygulamaya istemci yaniti gonderen uygulamaya ise sunucu adi verilir. Ornegin bir hava durumu uygulumasindan mudurlugun hava durumu veritabani sunucu iken mobil uygulama ise bir istemcidir.

@@ -50,3 +50,4 @@ Uçtan uca Nodejs serisi.
   - Routing.
   - MVc mimarisi.
   - Kurs ekleme.
+  - Slugging.

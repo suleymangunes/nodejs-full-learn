@@ -26,12 +26,17 @@ const CourseSchema = new Schema({
     type: Date,
     default: Date.now,
   },
+  // veri tabanina veri eklenince otomatik slug olusturuulmasi icin slug eklendi
   slug: {
+    // slugin benzersiz olmasi saglandi
     type: String,
     unique: true,
   },
 });
 
+// error function this desteklemez bu yuzden function kullanildi
+// semaya pre ile eklenen slugin name degeri ile slug olusturmasi saglandi
+// middleware bitince yeni middlewarein eklenmesi saglandi
 CourseSchema.pre('validate', function (next) {
   this.slug = slugify(this.name, {
     lower: true,

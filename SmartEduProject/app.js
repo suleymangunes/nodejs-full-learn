@@ -34,14 +34,20 @@ app.set('view engine', 'ejs');
 // static dosyalarin public icerisinde oldugu belirtildi
 app.use(express.static('public'));
 
+// json ile ilgili islemlerde middleware eklemeyi unutma
+app.use(express.json()); // for parsing application/json
+app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
 // ROUTES
 // / istegine karsilik pageroute fonksiyonuna gidilmesi saglandi
 // bu fonksiyon da express uzerinden olusturulan pageroute pagecontrollerdaki fonksiyonlari calistirir
-app.get('/', pageRoute);
-app.get('/courses', courseRoute);
+app.use('/', pageRoute);
+app.use('/courses', courseRoute);
 
 // about sayfasina gidildi
-app.get('/about', pageRoute);
+app.use('/about', pageRoute);
+
+// app.use('/courses', pageRoute);
 
 // port ayarlandi
 const port = 3000;

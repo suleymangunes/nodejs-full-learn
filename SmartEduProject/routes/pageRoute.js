@@ -11,6 +11,7 @@ const router = express.Router();
 router.route('/').get(pageController.getIndexPage);
 // eger about kullanilmissa pagecontroller uzerinden abouta gitmesi saglandi
 router.route('/about').get(pageController.getAboutPage);
-
+// courses sayfasi
+// router.route('/courses').get(pageController.getCoursesPage);
 // modullerin disa aktarilmasi saglandi
 module.exports = router;

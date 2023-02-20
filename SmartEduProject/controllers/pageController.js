@@ -11,3 +11,10 @@ exports.getIndexPage = (req, res) => {
     page_name: 'index',
   });
 };
+
+// exports.getCoursesPage = (req, res) => {
+//   // res.status(200).send('index sayfasi');
+//   res.render('courses', {
+//     page_name: 'courses',
+//   });
+// };

@@ -7,4 +7,6 @@ const router = express.Router();
 // router uzerinden kurs olusturuldu
 router.route('/').post(courseController.createCourse);
 router.route('/').get(courseController.getAllCourses);
+// yakalanan slug ile kurs sayfasi gosterildi
+router.route('/:slug').get(courseController.getCourse);
 module.exports = router;

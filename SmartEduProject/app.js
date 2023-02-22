@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 const pageRoute = require('./routes/pageRoute');
 // course route
 const courseRoute = require('./routes/courseRoutes');
+// category route
+const categoryRoute = require('./routes/categoryRoute');
 
 // express kutuphanesinden nesne olusturuldu
 const app = express();
@@ -22,6 +24,7 @@ const app = express();
 //   .then(() => {
 //     console.log('db connected succesfully');
 //   });
+mongoose.set('strictQuery', false);
 
 mongoose
   .connect('mongodb://localhost/smartedu-db')
@@ -43,6 +46,7 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 // bu fonksiyon da express uzerinden olusturulan pageroute pagecontrollerdaki fonksiyonlari calistirir
 app.use('/', pageRoute);
 app.use('/courses', courseRoute);
+app.use('/categories', categoryRoute);
 
 // about sayfasina gidildi
 app.use('/about', pageRoute);

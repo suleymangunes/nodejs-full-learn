@@ -32,6 +32,11 @@ const CourseSchema = new Schema({
     type: String,
     unique: true,
   },
+  // kategori secimi category modeli uzerinden olusturuldu
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Category',
+  },
 });
 
 // error function this desteklemez bu yuzden function kullanildi

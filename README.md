@@ -49,5 +49,5 @@ Uçtan uca Nodejs serisi.
   - Http durum kodlari.
   - Routing.
   - MVc mimarisi.
-  - Kurs ekleme.
+  - Kurs ekleme, kategori ekleme.
   - Slugging.

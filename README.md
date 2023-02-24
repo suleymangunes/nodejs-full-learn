@@ -13,6 +13,10 @@ Uçtan uca Nodejs serisi.
     - Prompt ile input.
     - Liste içerisinde elemana erişmek ve değiştirmek.
     - Class bilgisi ekleme ve cikarmak.
+  - Decision Structers
+    - Karşılaştırma operatorleri ve mantıksal operatorler.
+    - Koşul/Çoklu koşul yapısı.
+    - Ternary Operators.
 ### Nodejs Nedir?
   - Degisken tanimlama, ekran ciktisi, disarda deger alma, fonksiyon olusturma, dongu gibi temel JavaScript komutlari.
   - Repl hakkinda temel bilgi.

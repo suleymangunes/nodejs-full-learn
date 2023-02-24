@@ -8,7 +8,11 @@ Uçtan uca Nodejs serisi.
     - Template literals.
     - Type coercion.
     - Slice, indexOf, replace, length ve bazı string metotlari.
-
+  - Dom
+    - Etiket ve id ile öğe seçimi.
+    - Prompt ile input.
+    - Liste içerisinde elemana erişmek ve değiştirmek.
+    - Class bilgisi ekleme ve cikarmak.
 ### Nodejs Nedir?
   - Degisken tanimlama, ekran ciktisi, disarda deger alma, fonksiyon olusturma, dongu gibi temel JavaScript komutlari.
   - Repl hakkinda temel bilgi.

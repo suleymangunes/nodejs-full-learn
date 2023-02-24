@@ -61,4 +61,4 @@ console.log(karakterdizisi.search("bir"));
 // touppercase ile buyuk harf lower ile kucuk harf donusturme islemi yapilir
 // concat ile iki metin birlestirirlir
 // include dahillik kontrolu
-// startwith ile basladi mi endswith ile bitti mi
+// startwith ile basladi mi endswith ile bitti

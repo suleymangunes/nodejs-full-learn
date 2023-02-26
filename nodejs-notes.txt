@@ -78,3 +78,6 @@ Programin sağlık durumunu kontrol etmek icin durum kodlari kullanilir.
 
 API - Application Programming Interface
 İki yazılım bileseninin belirli tanimlar ve protokoller araciligiyla birbirleriyle iletisim kurmasina olanak taniyan mekanizmalardir. Api mimarisi genellikle istemci ve sunucu bakimindan calisir. İstegi gonderen uygulamaya istemci yaniti gonderen uygulamaya ise sunucu adi verilir. Ornegin bir hava durumu uygulumasindan mudurlugun hava durumu veritabani sunucu iken mobil uygulama ise bir istemcidir.
+
+Session
+Oturum. Kişiye ozel icerik olusturmak icin kullanici bilgilerinin sunucu tarafında saklanmasini saglayan araclardir.

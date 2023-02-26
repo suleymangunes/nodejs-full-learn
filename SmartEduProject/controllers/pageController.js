@@ -19,6 +19,13 @@ exports.getRegisterPage = (req, res) => {
   });
 };
 
+// login page
+exports.getLoginPage = (req, res) => {
+  res.render('Login', {
+    page_name: 'Login',
+  });
+};
+
 // exports.getCoursesPage = (req, res) => {
 //   // res.status(200).send('index sayfasi');
 //   res.render('courses', {

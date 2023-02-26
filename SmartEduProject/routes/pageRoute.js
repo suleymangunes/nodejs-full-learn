@@ -14,6 +14,8 @@ router.route('/about').get(pageController.getAboutPage);
 // courses sayfasi
 // router.route('/courses').get(pageController.getCoursesPage);
 router.route('/register').get(pageController.getRegisterPage);
+// login
+router.route('/login').get(pageController.getLoginPage);
 
 // modullerin disa aktarilmasi saglandi
 module.exports = router;

@@ -74,3 +74,4 @@ Uçtan uca Nodejs serisi.
   - MVc mimarisi.
   - Kurs ekleme, kategori ekleme.
   - Slugging.
+  - Password encryption.

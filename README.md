@@ -116,7 +116,7 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
     <li>Kurs ekleme, kategori ekleme.</li>
     <li>Slugging.</li>
     <li>Password encryption.</li>
-    <li>Authentication.</li>
+    <li>Authentication sign in-sign out..</li>
     <li>User session.</li>
     </ul>
     </details>

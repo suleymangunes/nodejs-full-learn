@@ -17,6 +17,13 @@ Uçtan uca Nodejs serisi.
     - Karşılaştırma operatorleri ve mantıksal operatorler.
     - Koşul/Çoklu koşul yapısı.
     - Ternary Operators.
+  - Functions
+    - Fonksiyon oluşturma.
+    - Function expression.
+    - Arrow functions.
+    - Recursion Functions.
+    - Nested functions.
+    - Working with dom.
 ### Nodejs Nedir?
   - Degisken tanimlama, ekran ciktisi, disarda deger alma, fonksiyon olusturma, dongu gibi temel JavaScript komutlari.
   - Repl hakkinda temel bilgi.

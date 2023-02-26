@@ -3,6 +3,8 @@
 const express = require('express');
 // veri tabani icin model olusturmak icin mongoose kutuphanesi ice aktarildi
 const mongoose = require('mongoose');
+// session icin express session paketi
+const session = require('express-session');
 // route fonksiyonu ice aktarildi
 const pageRoute = require('./routes/pageRoute');
 // course route
@@ -35,6 +37,10 @@ mongoose
 // Template Engine olarak ejs nin oldugu belirtildi
 app.set('view engine', 'ejs');
 
+// global degisken olusturuldu
+// kullanici giri yapmis ise gerekli goruntunun yapilmasi saglandi
+global.userIn = null;
+
 // MIDDLEWARE
 // static dosyalarin public icerisinde oldugu belirtildi
 app.use(express.static('public'));
@@ -42,10 +48,24 @@ app.use(express.static('public'));
 // json ile ilgili islemlerde middleware eklemeyi unutma
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+// session middleware
+app.use(
+  session({
+    secret: 'my_keyboard_cat',
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 // ROUTES
 // / istegine karsilik pageroute fonksiyonuna gidilmesi saglandi
 // bu fonksiyon da express uzerinden olusturulan pageroute pagecontrollerdaki fonksiyonlari calistirir
+// her sayfaya geciste userin tanimlamasi saglandi
+// bu sayede kullanici var ise belirli tasarim yok ise belirli tasarim saglanacaktir
+app.use('*', (req, res, next) => {
+  userIn = req.session.userID;
+  next();
+});
 app.use('/', pageRoute);
 app.use('/courses', courseRoute);
 app.use('/categories', categoryRoute);

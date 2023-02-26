@@ -75,3 +75,4 @@ Uçtan uca Nodejs serisi.
   - Kurs ekleme, kategori ekleme.
   - Slugging.
   - Password encryption.
+  - Authentication.

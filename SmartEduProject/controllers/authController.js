@@ -43,3 +43,11 @@ exports.LoginUser = async (req, res) => {
     });
   }
 };
+
+// cikis yapmak icin yapilan fonskiyon
+exports.logoutUser = (req, res) => {
+  // destroy ile session oturum kapatildi
+  req.session.destroy(() => {
+    res.redirect('/');
+  });
+};

@@ -8,7 +8,7 @@ exports.getAboutPage = (req, res) => {
 exports.getIndexPage = (req, res) => {
   // res.status(200).send('index sayfasi');
   // console.log(req.session.userID);
-  // console.log(userIn);
+  console.log(userIn);
   res.render('index', {
     page_name: 'index',
   });

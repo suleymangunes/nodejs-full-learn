@@ -5,6 +5,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 // session icin express session paketi
 const session = require('express-session');
+// connect mongo ile session aktivitesi tanimlanir
+const MongoStore = require('connect-mongo');
 // route fonksiyonu ice aktarildi
 const pageRoute = require('./routes/pageRoute');
 // course route
@@ -54,6 +56,11 @@ app.use(
     secret: 'my_keyboard_cat',
     resave: false,
     saveUninitialized: true,
+    // mongostore connect ile session durumu tanimlandi
+    // bu sayede giris yapilinca server durdurulsa bile cikis yapilmayacaktir
+    store: MongoStore.create({
+      mongoUrl: 'mongodb://localhost/smartedu-db',
+    }),
   })
 );
 

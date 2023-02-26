@@ -76,3 +76,4 @@ Uçtan uca Nodejs serisi.
   - Slugging.
   - Password encryption.
   - Authentication.
+  - User session.

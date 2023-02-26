@@ -24,6 +24,9 @@ Uçtan uca Nodejs serisi.
     - Recursion Functions.
     - Nested functions.
     - Working with dom.
+  - Local Storage
+    - Local storage veri ekleme, silme.
+    - Json parse ve stringfy.
 ### Nodejs Nedir?
   - Degisken tanimlama, ekran ciktisi, disarda deger alma, fonksiyon olusturma, dongu gibi temel JavaScript komutlari.
   - Repl hakkinda temel bilgi.

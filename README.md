@@ -1,6 +1,5 @@
 # Nodejs Full Learn
 
-<<<<<<< HEAD
 Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğu arşiv.
 
 <details open>
@@ -203,4 +202,3 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
   - Password encryption.
   - Authentication.
   - User session.
->>>>>>> b1ae8b14003db99a0441ccb46c4549897bb915f5

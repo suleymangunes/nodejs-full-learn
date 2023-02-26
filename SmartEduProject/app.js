@@ -9,6 +9,8 @@ const pageRoute = require('./routes/pageRoute');
 const courseRoute = require('./routes/courseRoutes');
 // category route
 const categoryRoute = require('./routes/categoryRoute');
+// user route
+const userRoute = require('./routes/userRoute');
 
 // express kutuphanesinden nesne olusturuldu
 const app = express();
@@ -47,7 +49,7 @@ app.use(express.urlencoded({ extended: true })); // for parsing application/x-ww
 app.use('/', pageRoute);
 app.use('/courses', courseRoute);
 app.use('/categories', categoryRoute);
-
+app.use('/users', userRoute);
 // about sayfasina gidildi
 app.use('/about', pageRoute);
 

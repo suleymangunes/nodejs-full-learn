@@ -119,6 +119,7 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
     <li>Authentication sign in-sign out..</li>
     <li>User session.</li>
     <li>Custom Middleware.</li>
+    <li>User roles.</li>
     </ul>
     </details>
 </ul>

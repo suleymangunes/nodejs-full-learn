@@ -4,6 +4,8 @@ const express = require('express');
 // olusturulan page controller fonksiyonlara projeye dahil edildi
 const pageController = require('../controllers/pageController');
 
+const redirectMiddleware = require('../middlewares/redirectMiddleware');
+
 // epxress kutuphanesi uzerinden router olusturuldu
 const router = express.Router();
 
@@ -13,9 +15,11 @@ router.route('/').get(pageController.getIndexPage);
 router.route('/about').get(pageController.getAboutPage);
 // courses sayfasi
 // router.route('/courses').get(pageController.getCoursesPage);
-router.route('/register').get(pageController.getRegisterPage);
+router
+  .route('/register')
+  .get(redirectMiddleware, pageController.getRegisterPage);
 // login
-router.route('/login').get(pageController.getLoginPage);
+router.route('/login').get(redirectMiddleware, pageController.getLoginPage);
 
 // modullerin disa aktarilmasi saglandi
 module.exports = router;

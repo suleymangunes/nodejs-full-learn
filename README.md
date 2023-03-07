@@ -1,6 +1,6 @@
 # Nodejs Full Learn
 
-Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğu arşiv.
+Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğu arşiv. <br> Detaylı içerik:
 
 <details open>
 <summary style="font-size:18px;"> JavaScript</summary>

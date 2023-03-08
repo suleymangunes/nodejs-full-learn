@@ -37,6 +37,11 @@ const CourseSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Category',
   },
+  // olusturulan kurs icin kullanici bilgisinin tutulacagi alan olusturuldu
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 });
 
 // error function this desteklemez bu yuzden function kullanildi

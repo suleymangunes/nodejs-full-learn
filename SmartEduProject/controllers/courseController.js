@@ -1,13 +1,21 @@
 // olusturulan model ice aktarildi
 const Category = require('../modals/Category');
 const Course = require('../modals/Course');
+const User = require('../modals/User');
 
 // model uzerinden yeni veri olusturulup veri tabanina eklendi
 exports.createCourse = async (req, res) => {
   // durumun calisip calismadigi icin durum kontrolu yapildi
   try {
     // eklenecek veri olarak istekten gelen body alindi
-    const course = await Course.create(req.body);
+    // kurs olusturulurken name description category ve user bilgisi ile olusturuldu
+    // bunun nedeni kursu kimin olusturdugunu bilmektir
+    const course = await Course.create({
+      name: req.body.name,
+      description: req.body.description,
+      category: req.body.category,
+      user: req.session.userID,
+    });
     // eger basarili ise json dosyasinda icerik ve basarili durum gonderildi
     // res.status(201).json({
     //   status: 'success',
@@ -63,9 +71,18 @@ exports.getCourse = async (req, res) => {
     // kurs sayfasi slug ile bulundu slugify paketi ile database e kaydedilen veri de slug otomaik olusturuldu
     const course = await Course.findOne({
       slug: req.params.slug,
-    });
+      // populate ile coursun user veri tabani kismina da ulasildi
+    }).populate('user');
+
+    // tekil kurs sayfasinda kursu olusturan ogretmen bilgisi de eklenmek istenirse bu sekilde
+    // course user id uzerinden yapilabilirdi ancak bunun yerine populate ile yapildi
+    // const user = await User.findOne({
+    //   _id: course.user,
+    // });
+
     res.status(200).render('course', {
       course,
+      // user,
       page_name: 'courses',
     });
   } catch (error) {

@@ -1,6 +1,7 @@
 const User = require('../modals/User');
 const Category = require('../modals/Category');
 const bcrypt = require('bcrypt');
+const Course = require('../modals/Course');
 
 exports.createUser = async (req, res) => {
   try {
@@ -61,9 +62,14 @@ exports.getDashboardPage = async (req, res) => {
   });
   // kategoriler alindi
   const categories = await Category.find();
+  // aktif olan kullanicinin kurslari secildi ve bunların gosterilmesi saglandi
+  const courses = await Course.find({
+    user: req.session.userID,
+  });
   res.render('dashboard', {
     page_name: 'dashboard',
     user,
     categories,
+    courses,
   });
 };

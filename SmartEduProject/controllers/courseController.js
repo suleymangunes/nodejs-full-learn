@@ -68,6 +68,8 @@ exports.getAllCourses = async (req, res) => {
 // tek kurs alinarak kurs detay sayfasina gitmesi icin fonksiyon
 exports.getCourse = async (req, res) => {
   try {
+    const user = await User.findById(req.session.userID);
+
     // kurs sayfasi slug ile bulundu slugify paketi ile database e kaydedilen veri de slug otomaik olusturuldu
     const course = await Course.findOne({
       slug: req.params.slug,
@@ -82,6 +84,7 @@ exports.getCourse = async (req, res) => {
 
     res.status(200).render('course', {
       course,
+      user,
       // user,
       page_name: 'courses',
     });
@@ -112,6 +115,26 @@ exports.enrollCourse = async (req, res) => {
     //   course,
     //   page_name: 'courses',
     // });
+    res.redirect('/users/dashboard');
+  } catch (error) {
+    res.status(400).json({
+      status: 'fail',
+      error,
+    });
+  }
+};
+
+// kurs kaydini silmek icin olusturulan fonksiyon
+exports.releaseCourse = async (req, res) => {
+  try {
+    const user = await User.findById(req.session.userID);
+
+    // pull ile veritabanindan silinmesi saglandi
+    await user.courses.pull({
+      _id: req.body.course_id,
+    });
+    await user.save();
+
     res.redirect('/users/dashboard');
   } catch (error) {
     res.status(400).json({

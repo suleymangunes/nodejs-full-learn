@@ -4,7 +4,7 @@ module.exports = (roles) => {
     const userRole = req.body.role;
     // eger kullaninicini rolu istenilen role uyuyorsa islemin yapilmasi saglandi
     if (roles.includes(userRole)) {
-      next;
+      next();
     } else {
       return res.status(401).send('you cant do it');
     }

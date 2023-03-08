@@ -9,10 +9,11 @@ exports.createCourse = async (req, res) => {
     // eklenecek veri olarak istekten gelen body alindi
     const course = await Course.create(req.body);
     // eger basarili ise json dosyasinda icerik ve basarili durum gonderildi
-    res.status(201).json({
-      status: 'success',
-      course,
-    });
+    // res.status(201).json({
+    //   status: 'success',
+    //   course,
+    // });
+    res.status(201).redirect('/courses');
   } catch (error) {
     // eger hata varsa error gonderildi
     res.status(400).json({
@@ -27,7 +28,6 @@ exports.getAllCourses = async (req, res) => {
   try {
     // queryden categories karsiligi alindi
     const categorySlug = req.query.categories;
-    console.log(categorySlug);
     // category veritabanindan slug degeri queryden alinan category degeri olan veri ile filtrelendi
     const category = await Category.findOne({ slug: categorySlug });
 
@@ -40,7 +40,7 @@ exports.getAllCourses = async (req, res) => {
     }
 
     // kurslar filtreleme islemi ile alidni
-    const courses = await Course.find(filter);
+    const courses = await Course.find(filter).sort('-createdAt');
     // kategoriler alindi
     const categories = await Category.find();
     // kurs sayfasina yonlendirildi
@@ -50,8 +50,6 @@ exports.getAllCourses = async (req, res) => {
       page_name: 'courses',
     });
   } catch (error) {
-    console.log('hata');
-    console.log(error);
     res.status(400).json({
       status: 'fail',
       error,

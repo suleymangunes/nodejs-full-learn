@@ -11,6 +11,10 @@ const router = express.Router();
 router
   .route('/')
   .post(roleMiddleware(['teacher', 'admin']), courseController.createCourse);
+
+// bu kismi degistirecem
+// router.route('/').post(courseController.createCourse);
+
 router.route('/').get(courseController.getAllCourses);
 // yakalanan slug ile kurs sayfasi gosterildi
 router.route('/:slug').get(courseController.getCourse);

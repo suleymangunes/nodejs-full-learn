@@ -92,3 +92,31 @@ exports.getCourse = async (req, res) => {
     });
   }
 };
+
+// ogrencinin kurs almasi icin fonksiyon
+exports.enrollCourse = async (req, res) => {
+  try {
+    const course = await Course.findOne({
+      slug: req.params.slug,
+      // populate ile coursun user veri tabani kismina da ulasildi
+    }).populate('user');
+    // ogrenci id belirlenir ve id ye gore ders veritabanina eklenir
+    const user = await User.findById(req.session.userID);
+
+    await user.courses.addToSet({
+      _id: req.body.course_id,
+    });
+    await user.save();
+
+    // res.status(201).render('course', {
+    //   course,
+    //   page_name: 'courses',
+    // });
+    res.redirect('/users/dashboard');
+  } catch (error) {
+    res.status(400).json({
+      status: 'fail',
+      error,
+    });
+  }
+};

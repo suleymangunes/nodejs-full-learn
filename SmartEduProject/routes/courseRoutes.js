@@ -18,4 +18,7 @@ router
 router.route('/').get(courseController.getAllCourses);
 // yakalanan slug ile kurs sayfasi gosterildi
 router.route('/:slug').get(courseController.getCourse);
+// ogrencinin kurs almasi
+router.route('/enroll').post(courseController.enrollCourse);
+
 module.exports = router;

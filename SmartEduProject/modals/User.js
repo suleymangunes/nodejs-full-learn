@@ -23,6 +23,14 @@ const UserSchema = new Schema({
     enum: ['student', 'teacher', 'admin'],
     default: 'student',
   },
+  // kullanicinin kayitli oldugu kurslar icin liste olusturuldu
+  courses: [
+    {
+      // eleman olarak obje ve referans olarak kursu aldi
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Course',
+    },
+  ],
 });
 
 // dokumani olusturmadan once modele ekleme yapmak icin pre mtotu kullanildi

@@ -57,9 +57,11 @@ exports.logoutUser = (req, res) => {
 
 // dashboard sayfasina gitmek icin fonksiyon
 exports.getDashboardPage = async (req, res) => {
+  // dashborad sayfasinda ogrencinin kayitli oldugu kurslar ogrenci tablosunda eleman olarak referansı kurs olan veri eklenmisti
+  // bu sayede populate ile refereans uzerinden course tablosuna erisilerek islem yapilabilir
   const user = await User.findOne({
     _id: req.session.userID,
-  });
+  }).populate('courses');
   // kategoriler alindi
   const categories = await Category.find();
   // aktif olan kullanicinin kurslari secildi ve bunların gosterilmesi saglandi

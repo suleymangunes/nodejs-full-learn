@@ -122,6 +122,7 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
     <li>Custom Middleware.</li>
     <li>User roles.</li>
     <li>Send Email.</li>
+    <li>Flash Messages.</li>
     </ul>
     </details>
 </ul>

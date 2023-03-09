@@ -2,6 +2,7 @@ const User = require('../modals/User');
 const Category = require('../modals/Category');
 const bcrypt = require('bcrypt');
 const Course = require('../modals/Course');
+const { validationResult } = require('express-validator');
 
 exports.createUser = async (req, res) => {
   try {
@@ -12,11 +13,17 @@ exports.createUser = async (req, res) => {
     // kaydolunca giris yapma sayfasina yonlendirildi
     res.status(201).redirect('/login');
   } catch (error) {
-    console.log(error);
-    res.status(400).json({
-      status: 'fail',
-      error,
-    });
+    // console.log(error);
+    // res.status(400).json({
+    //   status: 'fail',
+    //   error,
+    // });
+    // validaitor ile sorun varsa yakalandi
+    const errors = validationResult(req);
+    for (let i = 0; i < errors.array().length; i++) {
+      req.flash('error', `error: ${errors.array()[i].msg}`);
+    }
+    res.status(404).redirect('/register');
   }
 };
 
@@ -35,8 +42,15 @@ exports.LoginUser = async (req, res) => {
           req.session.userID = user._id;
 
           res.status(200).redirect('/users/dashboard');
+        } else {
+          // eger sifre dogru degilse flash mesaj gosterilmesi saglandi
+          req.flash('error', `your password is not correct`);
+          res.status(400).redirect('/login');
         }
       });
+    } else {
+      req.flash('error', `user is not exist`);
+      res.status(400).redirect('/login');
     }
   } catch (error) {
     console.log(error);

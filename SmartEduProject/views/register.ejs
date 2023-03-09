@@ -12,6 +12,20 @@
                         <div id="message"></div>
                         <form  method="POST" action="/users/signup">
                             <div class="row row-fluid">
+
+                                <% if(flashMessages) { %>
+                                    <% if(flashMessages.succes) { %>
+                                        <div class="alert alert-success">
+                                            <%= flashMessages.succes %>
+                                        </div>
+                                    <% } else if(flashMessages.error) { %>
+                                        <div class="alert alert-danger">
+                                            <%= flashMessages.error %>
+                                        </div>
+                                    <% } %>
+            
+                                <% }%>
+
 							    <div class="offset-1 col-lg-10 col-md-10 col-sm-10">
                                     <input type="text" name="name" id="name" class="form-control" placeholder="Name">
                                 </div>

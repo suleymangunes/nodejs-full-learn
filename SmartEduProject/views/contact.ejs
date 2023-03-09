@@ -16,6 +16,23 @@
 
             <div class="row">
                 <div class="offset-1 col-xl-10 col-md-10 col-sm-10">
+                    
+                    <!-- flash mesaji var ise gosterilmesi saglandi -->
+                    <% if(flashMessages) { %>
+                        <% if(flashMessages.succes) { %>
+                            <div class="alert alert-success">
+                                <%= flashMessages.succes %>
+                            </div>
+                        <% } else if(flashMessages.error) { %>
+                            <div class="alert alert-danger">
+                                <%= flashMessages.error %>
+                            </div>
+                        <% } %>
+
+                    <% }%>
+                    
+                    
+                    
                     <div class="contact_form">
                         <div id="message"></div>
                         <form id="contactform" class="" action="/contact" name="contactform" method="POST">

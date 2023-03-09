@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 // connect mongo ile session aktivitesi tanimlanir
 const MongoStore = require('connect-mongo');
+// flash mesajlar icin paket projeye dahil edildi
+var flash = require('connect-flash');
 // route fonksiyonu ice aktarildi
 const pageRoute = require('./routes/pageRoute');
 // course route
@@ -63,7 +65,12 @@ app.use(
     }),
   })
 );
-
+app.use(flash());
+app.use((req, res, next) => {
+  // flash mesajlari local degiskene atandi
+  res.locals.flashMessages = req.flash();
+  next();
+});
 // ROUTES
 // / istegine karsilik pageroute fonksiyonuna gidilmesi saglandi
 // bu fonksiyon da express uzerinden olusturulan pageroute pagecontrollerdaki fonksiyonlari calistirir

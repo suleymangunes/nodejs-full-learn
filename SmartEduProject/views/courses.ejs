@@ -9,6 +9,21 @@
 	
     <div id="overviews" class="section wb">
         <div class="container">
+
+			<!-- flash mesaji var ise gosterilmesi saglandi -->
+			<% if(flashMessages) { %>
+				<% if(flashMessages.succes) { %>
+					<div class="alert alert-success">
+						<%= flashMessages.succes %>
+					</div>
+				<% } else if(flashMessages.error) { %>
+					<div class="alert alert-danger">
+						<%= flashMessages.error %>
+					</div>
+				<% } %>
+
+			<% }%>
+
             <div class="row"> 
                 <div class="col-lg-9 blog-post-single">
 				            <div class="row"> 

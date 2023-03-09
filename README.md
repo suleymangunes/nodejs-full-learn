@@ -121,6 +121,7 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
     <li>User session.</li>
     <li>Custom Middleware.</li>
     <li>User roles.</li>
+    <li>Send Email.</li>
     </ul>
     </details>
 </ul>

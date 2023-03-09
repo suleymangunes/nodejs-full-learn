@@ -123,6 +123,7 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
     <li>User roles.</li>
     <li>Send Email.</li>
     <li>Flash Messages.</li>
+    <li>Validation.</li>
     </ul>
     </details>
 </ul>

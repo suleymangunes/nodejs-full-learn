@@ -114,6 +114,7 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
     <li>Routing.</li>
     <li>MVC mimarisi.</li>
     <li>Kurs ekleme, kategori ekleme, kullanıcı rolune gore kurs olusturmak.</li>
+    <li>Searching</li>
     <li>Slugging.</li>
     <li>Password encryption.</li>
     <li>Authentication sign in-sign out..</li>

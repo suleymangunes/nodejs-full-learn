@@ -36,6 +36,10 @@ exports.getAllCourses = async (req, res) => {
   try {
     // queryden categories karsiligi alindi
     const categorySlug = req.query.categories;
+
+    // arama icin query
+    const query = req.query.search;
+
     // category veritabanindan slug degeri queryden alinan category degeri olan veri ile filtrelendi
     const category = await Category.findOne({ slug: categorySlug });
 
@@ -47,8 +51,27 @@ exports.getAllCourses = async (req, res) => {
       filter = { category: category._id };
     }
 
+    // eger query var ise search alani dolu ise filtreye yenisi eklendi
+    if (query) {
+      filter = { name: query };
+    }
+
+    // eger query ve ceategoru slug yok ise iki degerin de bos olmasi saglandi
+    if (!query && !categorySlug) {
+      (filter.name = ''), (filter.category = null);
+    }
+
     // kurslar filtreleme islemi ile alidni
-    const courses = await Course.find(filter).sort('-createdAt');
+    const courses = await Course.find({
+      // regular expression ile arama saglandi
+      // regex ile icerisinde isim degiskeninden olan deger var ise basinda veya sonunda nerede bulunursa secilmesi saglandi
+      $or: [
+        { name: { $regex: '.*' + filter.name + '.*', $options: 'i' } },
+        { category: filter.category },
+      ],
+    })
+      .sort('-createdAt')
+      .populate('user');
     // kategoriler alindi
     const categories = await Category.find();
     // kurs sayfasina yonlendirildi
@@ -68,6 +91,7 @@ exports.getAllCourses = async (req, res) => {
 // tek kurs alinarak kurs detay sayfasina gitmesi icin fonksiyon
 exports.getCourse = async (req, res) => {
   try {
+    const categories = await Category.find();
     const user = await User.findById(req.session.userID);
 
     // kurs sayfasi slug ile bulundu slugify paketi ile database e kaydedilen veri de slug otomaik olusturuldu
@@ -85,6 +109,7 @@ exports.getCourse = async (req, res) => {
     res.status(200).render('course', {
       course,
       user,
+      categories,
       // user,
       page_name: 'courses',
     });

@@ -79,6 +79,7 @@ app.use('/categories', categoryRoute);
 app.use('/users', userRoute);
 // about sayfasina gidildi
 app.use('/about', pageRoute);
+// app.use('/contact', pageRoute);
 
 // app.use('/courses', pageRoute);
 

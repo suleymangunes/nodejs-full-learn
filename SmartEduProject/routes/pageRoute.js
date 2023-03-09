@@ -20,6 +20,8 @@ router
   .get(redirectMiddleware, pageController.getRegisterPage);
 // login
 router.route('/login').get(redirectMiddleware, pageController.getLoginPage);
+router.route('/contact').get(pageController.getContactPage);
+router.route('/contact').post(pageController.sendEmail);
 
 // modullerin disa aktarilmasi saglandi
 module.exports = router;

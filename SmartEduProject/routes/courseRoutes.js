@@ -18,6 +18,7 @@ router
 router.route('/').get(courseController.getAllCourses);
 // yakalanan slug ile kurs sayfasi gosterildi
 router.route('/:slug').get(courseController.getCourse);
+router.route('/:slug').delete(courseController.deleteCourse);
 // ogrencinin kurs almasi
 router.route('/enroll').post(courseController.enrollCourse);
 router.route('/release').post(courseController.releaseCourse);

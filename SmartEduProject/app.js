@@ -8,7 +8,9 @@ const session = require('express-session');
 // connect mongo ile session aktivitesi tanimlanir
 const MongoStore = require('connect-mongo');
 // flash mesajlar icin paket projeye dahil edildi
-var flash = require('connect-flash');
+const flash = require('connect-flash');
+// put kullanmak icin methodoverride eklendi
+const methodOverride = require('method-override');
 // route fonksiyonu ice aktarildi
 const pageRoute = require('./routes/pageRoute');
 // course route
@@ -71,6 +73,14 @@ app.use((req, res, next) => {
   res.locals.flashMessages = req.flash();
   next();
 });
+
+// put gibi seyleri kullanmak icin methodoverride middelware eklendi
+app.use(
+  methodOverride('_method', {
+    methods: ['POST', 'GET'],
+  })
+);
+
 // ROUTES
 // / istegine karsilik pageroute fonksiyonuna gidilmesi saglandi
 // bu fonksiyon da express uzerinden olusturulan pageroute pagecontrollerdaki fonksiyonlari calistirir

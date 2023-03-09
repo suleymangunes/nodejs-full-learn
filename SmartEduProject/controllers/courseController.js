@@ -171,3 +171,21 @@ exports.releaseCourse = async (req, res) => {
     });
   }
 };
+
+// kurs silmek icin fonksiyon olusturuldu
+exports.deleteCourse = async (req, res) => {
+  try {
+    await Course.findOneAndRemove({
+      slug: req.params.slug,
+    });
+
+    req.flash('error', 'your course has been deleted');
+
+    res.redirect('/users/dashboard');
+  } catch (error) {
+    res.status(400).json({
+      status: 'fail',
+      error,
+    });
+  }
+};

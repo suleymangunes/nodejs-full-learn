@@ -33,16 +33,32 @@ const UserSchema = new Schema({
   ],
 });
 
-// dokumani olusturmadan once modele ekleme yapmak icin pre mtotu kullanildi
+// // dokumani olusturmadan once modele ekleme yapmak icin pre mtotu kullanildi
+// UserSchema.pre('save', function (next) {
+//   // hangi kullanici giris yapiyorsa onun cagrilmasi ciin this kullanilid
+//   const user = this;
+//   // sifre olusturuldu
+//   bcrypt.hash(user.password, 10, (error, hash) => {
+//     // kullanicinin sifresi hash olarak tanimlandi
+//     user.password = hash;
+//     // bir sonraki middelaware e gitmesi icin next kullanildi
+//     next();
+//   });
+// });
+
+// mongoose her kullanici islem yapinca sifreyi de yeniden duzenler
+// bu yuzden bunu engellemek amaciyla her defasinda degistirmemesi saglandi
 UserSchema.pre('save', function (next) {
-  // hangi kullanici giris yapiyorsa onun cagrilmasi ciin this kullanilid
   const user = this;
-  // sifre olusturuldu
-  bcrypt.hash(user.password, 10, (error, hash) => {
-    // kullanicinin sifresi hash olarak tanimlandi
-    user.password = hash;
-    // bir sonraki middelaware e gitmesi icin next kullanildi
-    next();
+  if (!user.isModified('password')) return next();
+
+  bcrypt.genSalt(10, function (err, salt) {
+    if (err) return next(err);
+    bcrypt.hash(user.password, salt, function (err, hash) {
+      if (err) return next(err);
+      user.password = hash;
+      next();
+    });
   });
 });
 

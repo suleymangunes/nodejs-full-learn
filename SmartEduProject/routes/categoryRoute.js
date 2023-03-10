@@ -8,6 +8,7 @@ const router = express.Router();
 
 // router uzerinden / istegi ile kategori olusturulmasi saglandi
 router.route('/').post(categoryController.createCategory);
+router.route('/:id').delete(categoryController.deleteCategory);
 
 // router disa aktarildi
 module.exports = router;

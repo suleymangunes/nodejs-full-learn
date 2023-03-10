@@ -1,5 +1,7 @@
 // mail atmak icin paket ice atkarildi
 const nodemailer = require('nodemailer');
+const Course = require('../modals/Course');
+const User = require('../modals/User');
 
 // controller klasoru icerisinde sayfalar arasi gecis fonksiyonlari tanimlandi
 exports.getAboutPage = (req, res) => {
@@ -15,12 +17,22 @@ exports.getContactPage = (req, res) => {
   });
 };
 
-exports.getIndexPage = (req, res) => {
+exports.getIndexPage = async (req, res) => {
   // res.status(200).send('index sayfasi');
   // console.log(req.session.userID);
   console.log(userIn);
+
+  const courses = await Course.find().sort('-createdAt').limit(2);
+  const totalCourses = await Course.find().countDocuments();
+  const totalStudent = await User.find({ role: 'student' }).countDocuments();
+  const totalTeacher = await User.find({ role: 'teacher' }).countDocuments();
+
   res.render('index', {
     page_name: 'index',
+    courses,
+    totalStudent,
+    totalCourses,
+    totalTeacher,
   });
 };
 

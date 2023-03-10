@@ -125,6 +125,7 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
     <li>Send Email.</li>
     <li>Flash Messages.</li>
     <li>Validation.</li>
+    <li>Admin sayfasi ve kullanici silmek.</li>
     </ul>
     </details>
 </ul>

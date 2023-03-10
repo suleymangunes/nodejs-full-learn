@@ -82,10 +82,32 @@ exports.getDashboardPage = async (req, res) => {
   const courses = await Course.find({
     user: req.session.userID,
   });
+  const users = await User.find({});
   res.render('dashboard', {
     page_name: 'dashboard',
     user,
     categories,
     courses,
+    users,
   });
+};
+
+// kullanici silmek icin fonksiyon olusturuldu
+exports.deleteUser = async (req, res) => {
+  try {
+    await User.findByIdAndRemove(req.params.id);
+    // ogretmen kalkinca olusturdugu kurslarin da kaldirilmasi saglandi
+    await Course.deleteMany({
+      user: req.params.id,
+    }).then((user) => {
+      console.log(user);
+    });
+
+    res.redirect('/users/dashboard');
+  } catch (error) {
+    res.status(400).json({
+      status: 'fail',
+      error,
+    });
+  }
 };

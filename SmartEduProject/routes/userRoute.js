@@ -35,5 +35,6 @@ router.route('/signin').post(authController.LoginUser);
 router.route('/logout').get(authController.logoutUser);
 // dashboarda bir istek gelince once authmiddleware kontrol edilir sorun yoksa devam edilir
 router.route('/dashboard').get(authMiddleware, authController.getDashboardPage);
+router.route('/:id').delete(authController.deleteUser);
 
 module.exports = router;

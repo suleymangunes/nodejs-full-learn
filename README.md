@@ -107,6 +107,7 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
     </details>
     <details style="margin-left:-15px">
     <summary style="font-size:15px;">SmartEdu project</summary>
+    <b>Öğretmen kullanıcısının kurs oluşturup silebildiği ve güncelleyebildiği, öğrencinin kursa kaydolup kayıttan çıkma özelliği olan, admin sayfasina sahip online eğitim ortamı.</b>
     <ul>
     <li>Nodemon, Expressjs ile calisma ortami kurulumu.</li>
     <li>Ejs ile Template engine.</li>

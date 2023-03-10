@@ -74,7 +74,7 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
     </details>
     <details style="margin-left:-15px">
     <summary style="font-size:15px;">PCAT Projesi</summary>
-    <b>Resimlerin baslik ve aciklama bilgisi ile eklenlip, guncellendiği ve silindigi fotograf paylasim sitesi.</b>
+    <b>Resimlerin baslik ve aciklama bilgisi ile eklenlip, guncellendiği ve silindigi fotograf paylasim sitesi. <a href="https://pcat-project-suleymangunes.onrender.com/about">Siteye gitmek için tıkla.</a></b>
     <ul>
     <li>Calisma ortami kurulumu Prettier, Nodemon, Expressjs.</li>
     <li>Middleware kavrami hakkindi bilgi.</li>
@@ -92,7 +92,7 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
     </details>
     <details style="margin-left:-15px">
     <summary style="font-size:15px;">Clean Blog Projesi</summary>
-    <b>Postlarin baslik, aciklama ve zaman bilgisi ile eklenip, guncellendigi ve silindigi fotograf paylasim sitesi.</b>
+    <b>Postlarin baslik, aciklama ve zaman bilgisi ile eklenip, guncellendigi ve silindigi fotograf paylasim sitesi.<a href="https://clean-blog-project-suleymangunes-bl0b.onrender.com/">Siteye gitmek için tıkla.</a></b>
     <ul>
     <li>Prettier, Nodemon, Expressjs ile calisma ortami kurulumu.</li>
     <li>Middleware, Template Engine ve Ejs bilgilendirme.</li>
@@ -107,7 +107,7 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
     </details>
     <details style="margin-left:-15px">
     <summary style="font-size:15px;">SmartEdu project</summary>
-    <b>Öğretmen kullanıcısının kurs oluşturup silebildiği ve güncelleyebildiği, öğrencinin kursa kaydolup kayıttan çıkma özelliği olan, admin sayfasina sahip online eğitim ortamı.</b>
+    <b>Öğretmen kullanıcısının kurs oluşturup silebildiği ve güncelleyebildiği, öğrencinin kursa kaydolup kayıttan çıkma özelliği olan, admin sayfasina sahip online eğitim ortamı.<a href="https://smart-edu-project-suleymangunes.onrender.com/">Siteye gitmek için tıkla.</a></b>
     <ul>
     <li>Nodemon, Expressjs ile calisma ortami kurulumu.</li>
     <li>Ejs ile Template engine.</li>

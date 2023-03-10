@@ -55,6 +55,19 @@ app.use(express.static('public'));
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 // session middleware
+// app.use(
+//   session({
+//     secret: 'my_keyboard_cat',
+//     resave: false,
+//     saveUninitialized: true,
+//     // mongostore connect ile session durumu tanimlandi
+//     // bu sayede giris yapilinca server durdurulsa bile cikis yapilmayacaktir
+//     store: MongoStore.create({
+//       mongoUrl: 'mongodb://localhost/smartedu-db',
+//     }),
+//   })
+// );
+
 app.use(
   session({
     secret: 'my_keyboard_cat',
@@ -63,10 +76,12 @@ app.use(
     // mongostore connect ile session durumu tanimlandi
     // bu sayede giris yapilinca server durdurulsa bile cikis yapilmayacaktir
     store: MongoStore.create({
-      mongoUrl: 'mongodb://localhost/smartedu-db',
+      mongoUrl:
+        'mongodb+srv://smartedu-db:XzZAp1i4q6R3dNhl@cluster3.bihqwmq.mongodb.net/?retryWrites=true&w=majority',
     }),
   })
 );
+
 app.use(flash());
 app.use((req, res, next) => {
   // flash mesajlari local degiskene atandi

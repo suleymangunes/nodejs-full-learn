@@ -111,20 +111,20 @@ Nodejs öğrenme sürecinde yazdığım açıklamalı kod ve notların bulunduğ
     <li>Nodemon, Expressjs ile calisma ortami kurulumu.</li>
     <li>Ejs ile Template engine.</li>
     <li>Http durum kodlari.</li>
-    <li>Routing.</li>
+    <li>Routing ile sayfa yönlendirmeleri.</li>
     <li>MVC mimarisi.</li>
     <li>Kurs ekleme, kategori ekleme, kurs silme, kurs güncelleme.</li>
     <li>Kullanıcı rolune gore kurs olusturmak.</li>
-    <li>Searching</li>
+    <li>Searching ile arama alanı oluşturma</li>
     <li>Slugging.</li>
-    <li>Password encryption.</li>
-    <li>Authentication sign in-sign out..</li>
-    <li>User session.</li>
-    <li>Custom Middleware.</li>
-    <li>User roles.</li>
-    <li>Send Email.</li>
-    <li>Flash Messages.</li>
-    <li>Validation.</li>
+    <li>Password encryption ile şifreleme.</li>
+    <li>Giriş çıkış işlemleri oluşturma</li>
+    <li>User session ile oturum kontrolü.</li>
+    <li>Custom Middleware oluşturma.</li>
+    <li>Kullanıcı rolleri oluşturma.</li>
+    <li>Email gönderme servisi.</li>
+    <li>Flash Messages ile bildirim.</li>
+    <li>Validasyon işlemleri.</li>
     <li>Admin sayfasi ve kullanici silmek.</li>
     </ul>
     </details>

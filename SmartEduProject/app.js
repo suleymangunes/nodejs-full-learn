@@ -37,8 +37,15 @@ const app = express();
 mongoose.set('strictQuery', false);
 
 mongoose
-  .connect('mongodb://localhost/smartedu-db')
-  .then(() => console.log('Connected!'));
+  .connect(
+    'mongodb+srv://smartedu-db:XzZAp1i4q6R3dNhl@cluster3.bihqwmq.mongodb.net/?retryWrites=true&w=majority'
+  )
+  .then(() => {
+    console.log('database connected');
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 // Template Engine olarak ejs nin oldugu belirtildi
 app.set('view engine', 'ejs');
